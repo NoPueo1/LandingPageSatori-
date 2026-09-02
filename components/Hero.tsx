@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/data/siteConfig";
-import { MessageCircle, ChevronDown, UtensilsCrossed } from "lucide-react";
+import { MessageCircle, UtensilsCrossed } from "lucide-react";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -135,23 +135,6 @@ export default function Hero() {
           🕐 {siteConfig.schedule}
         </motion.div>
       </div>
-
-      {/* Scroll indicator — clickable */}
-      <motion.button
-        onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-gray-600 hover:text-gray-400 transition-colors cursor-pointer group"
-      >
-        <span className="text-xs tracking-widest uppercase group-hover:text-gray-300 transition-colors">Ver menú</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        >
-          <ChevronDown className="w-5 h-5" />
-        </motion.div>
-      </motion.button>
     </section>
   );
 }
