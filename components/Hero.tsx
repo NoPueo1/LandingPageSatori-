@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/data/siteConfig";
-import { MessageCircle, ChevronDown } from "lucide-react";
+import { MessageCircle, ChevronDown, UtensilsCrossed } from "lucide-react";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -95,21 +95,35 @@ export default function Hero() {
           <span className="text-white font-semibold">{siteConfig.location}</span>
         </motion.p>
 
-        {/* CTA Button */}
-        <motion.a
-          href={siteConfig.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* CTA Buttons */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0, duration: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="group flex items-center gap-3 bg-[#c0392b] hover:bg-[#a93226] text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg shadow-red-900/40 transition-colors duration-300"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
-          <MessageCircle className="w-5 h-5" />
-          Hacer Pedido por WhatsApp
-        </motion.a>
+          <motion.button
+            onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full sm:w-auto min-w-[220px] flex items-center justify-center gap-3 bg-[#c0392b] hover:bg-[#a93226] text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg shadow-red-900/40 transition-all duration-300 cursor-pointer"
+          >
+            <UtensilsCrossed className="w-5 h-5" />
+            Ver Menú
+          </motion.button>
+
+          <motion.a
+            href={siteConfig.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full sm:w-auto min-w-[220px] flex items-center justify-center gap-3 bg-[#161616] hover:bg-[#222222] border border-white/20 hover:border-white/40 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-300"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Pedir por WhatsApp
+          </motion.a>
+        </motion.div>
 
         {/* Schedule badge */}
         <motion.div
