@@ -1,16 +1,23 @@
+export interface RollItem {
+  wrapping: string;
+  ingredients: string;
+}
+
 export interface MenuItem {
   name: string;
   pieces?: number | string;
+  servings?: string;
   price: number;
-  description: string;
+  description?: string;
+  rolls?: RollItem[];
   tag?: string;
 }
 
 export interface MenuCategory {
   id: string;
   label: string;
-  items: MenuItem[];
   conditions?: string;
+  items: MenuItem[];
 }
 
 export const menuData: MenuCategory[] = [
@@ -23,175 +30,241 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 1",
         pieces: 20,
+        servings: "1-2 personas",
         price: 7990,
-        description:
-          "Pollo · queso · morrón ahumado envuelto en panko — kanikama apanado · queso · palta envuelto en ciboullete.",
+        rolls: [
+          { wrapping: "Panko frito", ingredients: "Pollo, queso, morrón ahumado" },
+          { wrapping: "Ciboulette", ingredients: "Kanikama apanado, queso, palta" },
+        ],
       },
       {
         name: "Promo 2",
         pieces: 20,
+        servings: "1-2 personas",
         price: 9990,
-        description:
-          "Pollo · queso · morrón ahumado envuelto en panko — camarón apanado · queso · choclo baby envuelto en palta.",
+        rolls: [
+          { wrapping: "Panko frito", ingredients: "Pollo, queso, morrón ahumado" },
+          { wrapping: "Palta fresca", ingredients: "Camarón apanado, queso, choclo baby" },
+        ],
       },
       {
         name: "Promo 3",
         pieces: 30,
+        servings: "2-3 personas",
         price: 12990,
-        description:
-          "Pollo · queso crema · palta envuelto en panko — kanikama apanado · cebollín · choclo baby envuelto en queso nuss — palmito · queso crema · choclo envuelto en ciboullete.",
+        rolls: [
+          { wrapping: "Panko frito", ingredients: "Pollo, queso crema, palta" },
+          { wrapping: "Queso nuss", ingredients: "Kanikama apanado, cebollín, choclo baby" },
+          { wrapping: "Ciboulette", ingredients: "Palmito, queso crema, choclo" },
+        ],
       },
       {
         name: "Promo 4",
         pieces: 40,
+        servings: "2-4 personas",
         price: 16990,
-        description:
-          "Camarón apanado · queso · palta envuelto en panko — pollo · queso · cebollín envuelto en palta — kanikama apanado · queso · morrón ahumado envuelto en sésamo blanco tostado — choclo baby · queso · palta envuelto en ciboullete.",
+        rolls: [
+          { wrapping: "Panko frito", ingredients: "Camarón apanado, queso, palta" },
+          { wrapping: "Palta fresca", ingredients: "Pollo, queso, cebollín" },
+          { wrapping: "Sésamo tostado", ingredients: "Kanikama apanado, queso, morrón ahumado" },
+          { wrapping: "Ciboulette", ingredients: "Choclo baby, queso, palta" },
+        ],
       },
       {
         name: "Promo 5",
         pieces: 50,
+        servings: "3-4 personas",
         price: 20990,
-        description:
-          "Pollo · queso crema · palta envuelto en panko — camarón apanado · queso crema · cebollín envuelto en panko — pollo apanado · queso · pimentón envuelto en queso con topping cebolla crispy — kanikama apanado · queso · choclo envuelto en ciboullete — palmito · queso · palta envuelto en sésamo tostado blanco.",
-        tag: "Popular",
+        tag: "Más Pedida",
+        rolls: [
+          { wrapping: "Panko frito", ingredients: "Pollo, queso crema, palta" },
+          { wrapping: "Panko frito", ingredients: "Camarón apanado, queso crema, cebollín" },
+          { wrapping: "Queso flameado", ingredients: "Pollo apanado, queso, pimentón con cebolla crispy" },
+          { wrapping: "Ciboulette", ingredients: "Kanikama apanado, queso, choclo" },
+          { wrapping: "Sésamo tostado", ingredients: "Palmito, queso, palta" },
+        ],
       },
       {
         name: "Promo 6",
         pieces: 70,
+        servings: "4-5 personas",
         price: 27990,
-        description:
-          "Pollo · queso · palta en panko — camarón apanado · queso · morrón en panko — palmito · queso · choclo en panko — camarón apanado · queso · cebollín en queso nuss — pollo apanado · queso · ciboullete en palta — kanikama apanado · queso · choclo en ciboullete — kanikama apanado · queso en nori con topping sésamo tostado.",
+        rolls: [
+          { wrapping: "Panko frito", ingredients: "Pollo, queso, palta" },
+          { wrapping: "Panko frito", ingredients: "Camarón apanado, queso, morrón" },
+          { wrapping: "Panko frito", ingredients: "Palmito, queso, choclo" },
+          { wrapping: "Queso nuss", ingredients: "Camarón apanado, queso, cebollín" },
+          { wrapping: "Palta fresca", ingredients: "Pollo apanado, queso, ciboulette" },
+          { wrapping: "Ciboulette", ingredients: "Kanikama apanado, queso, choclo" },
+          { wrapping: "Nori con sésamo", ingredients: "Kanikama apanado, queso" },
+        ],
       },
       {
         name: "Promo 7",
         pieces: 100,
+        servings: "5-7 personas · Eventos & Juntas",
         price: 39990,
-        description:
-          "Pollo · queso · palta envuelto en panko — kanikama apanado · queso · morrón ahumado envuelto en panko — palmito · queso · choclo envuelto en panko — camarón apanado · queso · cebollín envuelto en panko — pollo apanado · queso · ciboullete envuelto en palta — camarón apanado · queso · choclo envuelto en ciboullete — kanikama apanado · palmito · cebollín envuelto en queso con topping cebolla crispy — camarón apanado · queso · palta envuelto en sésamo blanco tostado — kanikama apanado · queso envuelto en nori frito — choclo baby · queso · palta envuelto en nori con topping de sésamo tostado.",
-        tag: "Mega",
+        tag: "Mega Combo",
+        rolls: [
+          { wrapping: "Panko frito", ingredients: "Pollo, queso, palta" },
+          { wrapping: "Panko frito", ingredients: "Kanikama apanado, queso, morrón ahumado" },
+          { wrapping: "Panko frito", ingredients: "Palmito, queso, choclo" },
+          { wrapping: "Panko frito", ingredients: "Camarón apanado, queso, cebollín" },
+          { wrapping: "Palta fresca", ingredients: "Pollo apanado, queso, ciboulette" },
+          { wrapping: "Ciboulette", ingredients: "Camarón apanado, queso, choclo" },
+          { wrapping: "Queso flameado", ingredients: "Kanikama apanado, palmito, cebollín con cebolla crispy" },
+          { wrapping: "Sésamo tostado", ingredients: "Camarón apanado, queso, palta" },
+          { wrapping: "Nori frito", ingredients: "Kanikama apanado, queso" },
+          { wrapping: "Nori con sésamo", ingredients: "Choclo baby, queso, palta" },
+        ],
       },
     ],
   },
   {
     id: "premium",
-    label: "Premium",
+    label: "Promos Premium & Salmón",
     conditions:
-      "Incluye salsa de soya o agridulce. Cambio de envoltura, vegetal o proteína: $1.500 c/u.",
+      "Incluye salsa de soya, agridulce y palitos. Cambio de envoltura, vegetal o proteína: $1.500 c/u.",
     items: [
       {
         name: "Premium A",
         pieces: 30,
+        servings: "2-3 personas",
         price: 14990,
-        description:
-          "Camarón apanado · queso crema · ciboullete en jamón serrano con salsa acevichada y merkén ahumado — pollo apanado · queso crema · palta en takis fuego — kanikama apanado · queso · cebollín en panko.",
+        rolls: [
+          { wrapping: "Jamón serrano", ingredients: "Camarón apanado, queso crema, ciboulette con salsa acevichada y merkén" },
+          { wrapping: "Takis fuego", ingredients: "Pollo apanado, queso crema, palta" },
+          { wrapping: "Panko frito", ingredients: "Kanikama apanado, queso, cebollín" },
+        ],
       },
       {
         name: "Premium B",
         pieces: 30,
+        servings: "2-3 personas",
         price: 15990,
-        description:
-          "Pollo apanado · queso · ciboullete en queso nuss — camarón apanado · queso · palta en panko con salsa maracuyá y camote crocante — kanikama apanado · queso · morrón ahumado en palta con salsa acevichada y merkén.",
+        rolls: [
+          { wrapping: "Queso nuss", ingredients: "Pollo apanado, queso, ciboulette" },
+          { wrapping: "Panko frito", ingredients: "Camarón apanado, queso, palta con salsa maracuyá y camote crocante" },
+          { wrapping: "Palta fresca", ingredients: "Kanikama apanado, queso, morrón con salsa acevichada y merkén" },
+        ],
       },
       {
         name: "Premium C",
         pieces: 30,
+        servings: "2-3 personas",
         price: 16990,
-        description:
-          "Pollo · queso · choclo en ciboullete con salsa acevichada y aros de cebolla — camarón apanado · queso · palmito en palta con salsa pink y crocante de camote — kanikama apanado · queso · cebollín en panko con salsa acevichada y merkén.",
-        tag: "Top",
+        tag: "Top Selección",
+        rolls: [
+          { wrapping: "Ciboulette", ingredients: "Pollo, queso, choclo con salsa acevichada y aros de cebolla" },
+          { wrapping: "Palta fresca", ingredients: "Camarón apanado, queso, palmito con salsa pink y crocante de camote" },
+          { wrapping: "Panko frito", ingredients: "Kanikama apanado, queso, cebollín con salsa acevichada y merkén" },
+        ],
+      },
+      {
+        name: "Inata Salmon",
+        pieces: 20,
+        servings: "1-2 personas",
+        price: 11990,
+        rolls: [
+          { wrapping: "Nori frito", ingredients: "Salmón, queso crema con topping salsa acevichada y merkén ahumado" },
+          { wrapping: "Ciboulette", ingredients: "Pollo, queso, palta con salsa maracuyá y camote" },
+        ],
+      },
+      {
+        name: "Hiroshi Fusion",
+        pieces: 20,
+        servings: "1-2 personas",
+        price: 12990,
+        rolls: [
+          { wrapping: "Jamón serrano", ingredients: "Camarón, queso, ciboulette con salsa acevichada y merkén ahumado" },
+          { wrapping: "Queso flameado", ingredients: "Salmón, queso, pimentón ahumado con cebolla crispy" },
+        ],
+      },
+      {
+        name: "Satori Nikkei",
+        pieces: 20,
+        servings: "1-2 personas",
+        price: 14990,
+        tag: "Signature",
+        rolls: [
+          { wrapping: "Salmón fresco", ingredients: "Camarón furay, queso, palta con salsa acevichada y limón" },
+          { wrapping: "Palta fresca", ingredients: "Salmón furay, queso, pimentón ahumado con salsa pinky y camote crocante" },
+        ],
       },
     ],
   },
   {
     id: "rolls",
-    label: "Rolls",
+    label: "Rolls Individuales",
     conditions:
-      "Incluye salsa de soya o agridulce. Cambios: $1.500 c/u — cambio a salmón: $2.500.",
+      "8 a 10 cortes c/u. Incluye salsa de soya o agridulce. Cambios: $1.500 c/u — cambio a salmón: $2.500.",
     items: [
       {
         name: "Roll A",
+        pieces: "8-10",
         price: 6500,
-        description:
-          "Pollo · queso crema · ciboullete en jamón serrano, salsa acevichada y merkén.",
+        rolls: [
+          { wrapping: "Jamón serrano", ingredients: "Pollo, queso crema, ciboulette, salsa acevichada y merkén" },
+        ],
       },
       {
         name: "Roll B",
+        pieces: "8-10",
         price: 6500,
-        description:
-          "Camarón apanado · queso · palmito en palta, salsa pink y crocante de camote.",
+        rolls: [
+          { wrapping: "Palta fresca", ingredients: "Camarón apanado, queso, palmito, salsa pink y crocante de camote" },
+        ],
       },
       {
         name: "Roll C",
+        pieces: "8-10",
         price: 7000,
-        description:
-          "Pollo apanado · palta · choclo baby en queso flameado, topping camote al hilo.",
+        rolls: [
+          { wrapping: "Queso flameado", ingredients: "Pollo apanado, palta, choclo baby, camote al hilo" },
+        ],
       },
       {
         name: "Roll D",
+        pieces: "8-10",
         price: 7000,
-        description:
-          "Camarón apanado · queso · choclo en ciboullete, aros de cebolla & salsa acevichada.",
+        rolls: [
+          { wrapping: "Ciboulette", ingredients: "Camarón apanado, queso, choclo, aros de cebolla y salsa acevichada" },
+        ],
       },
       {
         name: "Roll F",
+        pieces: "8-10",
         price: 7500,
-        description:
-          "Salmón · queso · palta en panko, topping camarón apanado y salsa maracuyá.",
         tag: "Especial",
+        rolls: [
+          { wrapping: "Panko frito", ingredients: "Salmón, queso, palta con topping camarón apanado y salsa maracuyá" },
+        ],
       },
       {
         name: "Roll G",
+        pieces: "8-10",
         price: 8000,
-        description:
-          "Camarón apanado · queso en salmón flameado, salsa acevichada y limón.",
         tag: "Premium",
-      },
-    ],
-  },
-  {
-    id: "salmon",
-    label: "Signature Salmon",
-    conditions: "Incluye salsa de soya, agridulce y palitos.",
-    items: [
-      {
-        name: "Inata Salmon",
-        pieces: 20,
-        price: 11990,
-        description:
-          "Salmón · queso crema en nori frito con topping salsa acevichada y merkén ahumado — pollo · queso · palta en ciboullete con salsa maracuyá y camote.",
-      },
-      {
-        name: "Hiroshi Fusion",
-        pieces: 20,
-        price: 12990,
-        description:
-          "Camarón · queso · ciboullete en jamón serrano, salsa acevichada y merkén ahumado — salmón · queso · pimentón ahumado en queso flameado con topping cebolla crispy.",
-      },
-      {
-        name: "Satori Nikkei",
-        pieces: 20,
-        price: 14990,
-        description:
-          "Camarón furay · queso · palta en salmón, salsa acevichada y toque de limón — salmón furay · queso · pimentón ahumado en palta con salsa pinky y crocantes de camote.",
-        tag: "Signature",
+        rolls: [
+          { wrapping: "Salmón flameado", ingredients: "Camarón apanado, queso con salsa acevichada y toque de limón" },
+        ],
       },
     ],
   },
   {
     id: "handroll",
-    label: "Hand-Roll & Burger",
+    label: "Hand-Rolls & Burger",
     conditions: "Incluye salsa de soya o agridulce.",
     items: [
       {
         name: "Hand-Roll Pollo",
         price: 3800,
-        description: "Pollo · queso crema + 1 vegetal a elección.",
+        description: "Pollo tradicional · queso crema + 1 vegetal a elección.",
       },
       {
         name: "Hand-Roll Pollo Apanado",
         price: 3800,
-        description: "Pollo apanado · queso crema + 1 vegetal a elección.",
+        description: "Pollo crujiente apanado · queso crema + 1 vegetal a elección.",
       },
       {
         name: "Hand-Roll Kanikama",
@@ -206,75 +279,75 @@ export const menuData: MenuCategory[] = [
       {
         name: "Sushi Burger",
         price: 7990,
-        description:
-          "1 proteína apanada (pollo, kanikama o camarón) + queso crema + 3 vegetales. Opciones: palta, morrón ahumado, cebollín, ciboullete, choclo baby y palmito.",
         tag: "Estrella",
+        description:
+          "1 proteína apanada (pollo, kanikama o camarón) + queso crema + 3 vegetales a elección (palta, morrón ahumado, cebollín, ciboullete, choclo baby o palmito).",
       },
     ],
   },
   {
     id: "picoteos",
-    label: "Picoteos",
-    conditions: "Incluye salsa de soya o agridulce.",
+    label: "Picoteos & Bebidas",
+    conditions: "Picoteos incluyen salsa de soya o agridulce.",
     items: [
       {
         name: "Aros de cebolla",
         pieces: 6,
         price: 1990,
-        description: "6 unidades crujientes.",
+        description: "6 unidades crujientes con salsa.",
       },
       {
         name: "Arrollados primavera",
         pieces: 6,
         price: 1990,
-        description: "6 unidades.",
+        description: "6 unidades doradas al punto.",
       },
       {
         name: "Empanadas de queso",
         pieces: 6,
         price: 1990,
-        description: "6 unidades.",
+        description: "6 unidades con queso fundido.",
       },
       {
         name: "Bastones de surimi apanado",
         pieces: 6,
         price: 2500,
-        description: "6 unidades.",
+        description: "6 unidades crocantes de surimi.",
       },
       {
         name: "Onigiris pollo queso crema",
         pieces: 10,
         price: 3990,
-        description: "10 unidades.",
+        description: "10 unidades triangulares rellenas.",
       },
       {
-        name: "Camarones",
+        name: "Camarones apanados",
         pieces: 6,
         price: 3990,
-        description: "6 unidades.",
+        description: "6 camarones apanados crocantes.",
       },
       {
         name: "Bocaditos carne mongoliana",
         pieces: 6,
         price: 1990,
-        description: "6 unidades.",
+        description: "6 unidades sazonadas.",
       },
       {
         name: "Wantán",
         pieces: 5,
         price: 3990,
-        description: "5 unidades.",
+        description: "5 unidades tradicionales.",
       },
       {
-        name: "Fingers chicken",
+        name: "Fingers chicken + BBQ",
         pieces: 5,
         price: 4990,
-        description: "5 unidades con salsa BBQ.",
+        description: "5 bastones de pechuga crujiente con salsa barbecue.",
       },
       {
         name: "Bebida lata 220cc",
         price: 1300,
-        description: "Fanta o Coca-Cola.",
+        description: "Lata fría: Coca-Cola o Fanta.",
       },
     ],
   },
