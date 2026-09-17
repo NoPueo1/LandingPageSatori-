@@ -16,7 +16,7 @@ export default function Cart() {
   const buildWhatsAppMsg = () => {
     const lines = items.map(
       (i) =>
-        `• ${i.name}${i.pieces ? ` (${i.pieces} pzas)` : ""} x${i.quantity} — ${formatPrice(i.price * i.quantity)}`
+        `• ${i.name}${i.pieces ? ` (${i.pieces} ${i.unit ? i.unit.toLowerCase() : "cortes"})` : ""} x${i.quantity} — ${formatPrice(i.price * i.quantity)}`
     );
     const msg =
       `Hola! Quiero hacer el siguiente pedido:\n\n` +
@@ -117,7 +117,7 @@ export default function Cart() {
                           </p>
                           {item.pieces && (
                             <p className="text-[#d4a853] text-xs font-semibold">
-                              {item.pieces} piezas
+                              {item.pieces} {item.unit ? item.unit.toLowerCase() : "cortes"}
                             </p>
                           )}
                         </div>

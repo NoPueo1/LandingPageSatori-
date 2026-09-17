@@ -26,6 +26,7 @@ export default function Menu() {
       name: item.name,
       price: item.price,
       pieces: item.pieces,
+      unit: item.unit,
     });
     setAdded(item.name);
     setTimeout(() => setAdded(null), 1200);
@@ -53,13 +54,13 @@ export default function Menu() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-2.5 mb-12"
+          className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar"
         >
           {menuData.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActive(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 border shrink-0 ${
                 active === cat.id
                   ? "bg-[#c0392b] border-[#c0392b] text-white shadow-lg shadow-red-900/30 scale-105"
                   : "bg-[#141414] border-[#262626] text-gray-400 hover:border-[#c0392b]/50 hover:text-white"
@@ -92,11 +93,11 @@ export default function Menu() {
                     className="group relative rounded-2xl p-6 bg-[#141414] border border-[#242424] hover:border-[#c0392b]/50 transition-all duration-300 card-glow flex flex-col justify-between"
                   >
                     <div>
-                      {/* Cuts Badge */}
+                      {/* Cuts / Units Badge */}
                       {item.pieces && (
                         <div className="mb-2">
                           <span className="inline-block text-xs font-black px-2.5 py-1 rounded bg-[#d4a853]/15 text-[#e5be6b] border border-[#d4a853]/30 tracking-wider uppercase">
-                            {item.pieces} Cortes
+                            {item.pieces} {item.unit || "Cortes"}
                           </span>
                         </div>
                       )}
@@ -106,7 +107,7 @@ export default function Menu() {
                         {item.name}
                       </h3>
 
-                      {/* Rolls List with clean alignment */}
+                      {/* Rolls or Details List with clean bullet alignment */}
                       {item.rolls && item.rolls.length > 0 ? (
                         <div className="space-y-2 mb-6 flex-1">
                           {item.rolls.map((roll, idx) => (
@@ -123,6 +124,27 @@ export default function Menu() {
                                 </span>{" "}
                                 <span className="text-gray-400">
                                   {roll.ingredients}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : item.details && item.details.length > 0 ? (
+                        <div className="space-y-2 mb-6 flex-1">
+                          {item.details.map((detail, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-start gap-2.5 text-xs sm:text-sm leading-snug"
+                            >
+                              <span className="text-[#c0392b] font-bold text-sm shrink-0 mt-0.5">
+                                •
+                              </span>
+                              <div className="text-gray-300">
+                                <span className="text-[#d4a853] font-bold">
+                                  {detail.label}:
+                                </span>{" "}
+                                <span className="text-gray-400">
+                                  {detail.text}
                                 </span>
                               </div>
                             </div>

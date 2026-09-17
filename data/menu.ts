@@ -3,12 +3,19 @@ export interface RollItem {
   ingredients: string;
 }
 
+export interface DetailItem {
+  label: string;
+  text: string;
+}
+
 export interface MenuItem {
   name: string;
   pieces?: number | string;
+  unit?: string;
   price: number;
   description?: string;
   rolls?: RollItem[];
+  details?: DetailItem[];
 }
 
 export interface MenuCategory {
@@ -28,6 +35,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 1",
         pieces: 20,
+        unit: "Cortes",
         price: 7990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso, morrón ahumado" },
@@ -37,6 +45,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 2",
         pieces: 20,
+        unit: "Cortes",
         price: 9990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso, morrón ahumado" },
@@ -46,6 +55,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 3",
         pieces: 30,
+        unit: "Cortes",
         price: 12990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso crema, palta" },
@@ -56,6 +66,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 4",
         pieces: 40,
+        unit: "Cortes",
         price: 16990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Camarón apanado, queso, palta" },
@@ -67,6 +78,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 5",
         pieces: 50,
+        unit: "Cortes",
         price: 20990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso crema, palta" },
@@ -79,6 +91,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 6",
         pieces: 70,
+        unit: "Cortes",
         price: 27990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso, palta" },
@@ -93,6 +106,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 7",
         pieces: 100,
+        unit: "Cortes",
         price: 39990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso, palta" },
@@ -118,6 +132,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Premium A",
         pieces: 30,
+        unit: "Cortes",
         price: 14990,
         rolls: [
           { wrapping: "Jamón serrano", ingredients: "Camarón apanado, queso crema, ciboulette con salsa acevichada y merkén" },
@@ -128,6 +143,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Premium B",
         pieces: 30,
+        unit: "Cortes",
         price: 15990,
         rolls: [
           { wrapping: "Queso nuss", ingredients: "Pollo apanado, queso, ciboulette" },
@@ -138,6 +154,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Premium C",
         pieces: 30,
+        unit: "Cortes",
         price: 16990,
         rolls: [
           { wrapping: "Ciboulette", ingredients: "Pollo, queso, choclo con salsa acevichada y aros de cebolla" },
@@ -148,6 +165,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Inata Salmon",
         pieces: 20,
+        unit: "Cortes",
         price: 11990,
         rolls: [
           { wrapping: "Nori frito", ingredients: "Salmón, queso crema con salsa acevichada y merkén ahumado" },
@@ -157,6 +175,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Hiroshi Fusion",
         pieces: 20,
+        unit: "Cortes",
         price: 12990,
         rolls: [
           { wrapping: "Jamón serrano", ingredients: "Camarón, queso, ciboulette con salsa acevichada y merkén ahumado" },
@@ -166,6 +185,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Satori Nikkei",
         pieces: 20,
+        unit: "Cortes",
         price: 14990,
         rolls: [
           { wrapping: "Salmón fresco", ingredients: "Camarón furay, queso, palta con salsa acevichada y limón" },
@@ -183,6 +203,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Roll A",
         pieces: "8-10",
+        unit: "Cortes",
         price: 6500,
         rolls: [
           { wrapping: "Jamón serrano", ingredients: "Pollo, queso crema, ciboulette, salsa acevichada y merkén" },
@@ -191,6 +212,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Roll B",
         pieces: "8-10",
+        unit: "Cortes",
         price: 6500,
         rolls: [
           { wrapping: "Palta fresca", ingredients: "Camarón apanado, queso, palmito, salsa pink y crocante de camote" },
@@ -199,6 +221,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Roll C",
         pieces: "8-10",
+        unit: "Cortes",
         price: 7000,
         rolls: [
           { wrapping: "Queso flameado", ingredients: "Pollo apanado, palta, choclo baby, camote al hilo" },
@@ -207,6 +230,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Roll D",
         pieces: "8-10",
+        unit: "Cortes",
         price: 7000,
         rolls: [
           { wrapping: "Ciboulette", ingredients: "Camarón apanado, queso, choclo, aros de cebolla y salsa acevichada" },
@@ -215,6 +239,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Roll F",
         pieces: "8-10",
+        unit: "Cortes",
         price: 7500,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Salmón, queso, palta con topping camarón apanado y salsa maracuyá" },
@@ -223,6 +248,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Roll G",
         pieces: "8-10",
+        unit: "Cortes",
         price: 8000,
         rolls: [
           { wrapping: "Salmón flameado", ingredients: "Camarón apanado, queso con salsa acevichada y toque de limón" },
@@ -237,29 +263,54 @@ export const menuData: MenuCategory[] = [
     items: [
       {
         name: "Hand-Roll Pollo",
+        pieces: 1,
+        unit: "Roll",
         price: 3800,
-        description: "Pollo tradicional · queso crema + 1 vegetal a elección.",
+        details: [
+          { label: "Base", text: "Pollo tradicional y queso crema" },
+          { label: "Vegetal", text: "+ 1 vegetal a elección" },
+        ],
       },
       {
         name: "Hand-Roll Pollo Apanado",
+        pieces: 1,
+        unit: "Roll",
         price: 3800,
-        description: "Pollo crujiente apanado · queso crema + 1 vegetal a elección.",
+        details: [
+          { label: "Base", text: "Pollo crujiente apanado y queso crema" },
+          { label: "Vegetal", text: "+ 1 vegetal a elección" },
+        ],
       },
       {
         name: "Hand-Roll Kanikama",
+        pieces: 1,
+        unit: "Roll",
         price: 3800,
-        description: "Kanikama apanado · queso crema + 1 vegetal a elección.",
+        details: [
+          { label: "Base", text: "Kanikama apanado y queso crema" },
+          { label: "Vegetal", text: "+ 1 vegetal a elección" },
+        ],
       },
       {
         name: "Hand-Roll Camarón",
+        pieces: 1,
+        unit: "Roll",
         price: 4500,
-        description: "Camarón apanado · queso crema + 1 vegetal a elección.",
+        details: [
+          { label: "Base", text: "Camarón apanado y queso crema" },
+          { label: "Vegetal", text: "+ 1 vegetal a elección" },
+        ],
       },
       {
         name: "Sushi Burger",
+        pieces: 1,
+        unit: "Unidad",
         price: 7990,
-        description:
-          "1 proteína apanada (pollo, kanikama o camarón) + queso crema + 3 vegetales a elección (palta, morrón ahumado, cebollín, ciboullete, choclo baby o palmito).",
+        details: [
+          { label: "Proteína", text: "Pollo, kanikama o camarón apanado" },
+          { label: "Relleno", text: "Queso crema + 3 vegetales a elección" },
+          { label: "Opciones", text: "Palta, morrón, cebollín, ciboulette, choclo baby o palmito" },
+        ],
       },
     ],
   },
@@ -271,61 +322,102 @@ export const menuData: MenuCategory[] = [
       {
         name: "Aros de cebolla",
         pieces: 6,
+        unit: "Unidades",
         price: 1990,
-        description: "6 unidades crujientes con salsa.",
+        details: [
+          { label: "Porción", text: "Aros de cebolla dorados y crujientes" },
+          { label: "Salsas", text: "Incluye salsa de soya o agridulce" },
+        ],
       },
       {
         name: "Arrollados primavera",
         pieces: 6,
+        unit: "Unidades",
         price: 1990,
-        description: "6 unidades doradas al punto.",
+        details: [
+          { label: "Porción", text: "Arrollados primavera crocantes" },
+          { label: "Salsas", text: "Incluye salsa de soya o agridulce" },
+        ],
       },
       {
         name: "Empanadas de queso",
         pieces: 6,
+        unit: "Unidades",
         price: 1990,
-        description: "6 unidades con queso fundido.",
+        details: [
+          { label: "Porción", text: "Empanaditas de queso fundido crujientes" },
+          { label: "Salsas", text: "Incluye salsa de soya o agridulce" },
+        ],
       },
       {
         name: "Bastones de surimi apanado",
         pieces: 6,
+        unit: "Unidades",
         price: 2500,
-        description: "6 unidades crocantes de surimi.",
+        details: [
+          { label: "Porción", text: "Bastones apanados en panko crujiente" },
+          { label: "Salsas", text: "Incluye salsa de soya o agridulce" },
+        ],
       },
       {
         name: "Onigiris pollo queso crema",
         pieces: 10,
+        unit: "Unidades",
         price: 3990,
-        description: "10 unidades triangulares rellenas.",
+        details: [
+          { label: "Relleno", text: "Pollo sazonado con queso crema" },
+          { label: "Formato", text: "10 bocados triangulares de arroz" },
+        ],
       },
       {
         name: "Camarones apanados",
         pieces: 6,
+        unit: "Unidades",
         price: 3990,
-        description: "6 camarones apanados crocantes.",
+        details: [
+          { label: "Porción", text: "Camarones apanados al panko" },
+          { label: "Salsas", text: "Incluye salsa de soya o agridulce" },
+        ],
       },
       {
         name: "Bocaditos carne mongoliana",
         pieces: 6,
+        unit: "Unidades",
         price: 1990,
-        description: "6 unidades sazonadas.",
+        details: [
+          { label: "Sabor", text: "Carne sazonada en salsa mongoliana" },
+          { label: "Salsas", text: "Incluye salsa de soya o agridulce" },
+        ],
       },
       {
         name: "Wantán",
         pieces: 5,
+        unit: "Unidades",
         price: 3990,
-        description: "5 unidades tradicionales.",
+        details: [
+          { label: "Porción", text: "Wantanes crujientes tradicionales" },
+          { label: "Salsas", text: "Incluye salsa de soya o agridulce" },
+        ],
       },
       {
         name: "Fingers chicken + BBQ",
         pieces: 5,
+        unit: "Unidades",
         price: 4990,
-        description: "5 bastones de pechuga crujiente con salsa barbecue.",
+        details: [
+          { label: "Porción", text: "Tiras de pechuga crujientes" },
+          { label: "Salsa", text: "Acompañado con salsa barbecue" },
+        ],
       },
       {
         name: "Bebida lata 220cc",
+        pieces: 220,
+        unit: "cc",
         price: 1300,
-        description: "Lata fría: Coca-Cola o Fanta.",
+        details: [
+          { label: "Formato", text: "Lata individual 220cc bien fría" },
+          { label: "Variedad", text: "Coca-Cola o Fanta (según stock)" },
+        ],
       },
     ],
   },
