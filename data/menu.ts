@@ -14,7 +14,6 @@ export interface MenuItem {
   unit?: string;
   badge?: string;
   price: number;
-  description?: string;
   rolls?: RollItem[];
   details?: DetailItem[];
 }

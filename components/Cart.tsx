@@ -4,10 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, Minus, Plus, Trash2, ShoppingBag, MessageCircle } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { siteConfig } from "@/data/siteConfig";
-
-function formatPrice(p: number) {
-  return `$${p.toLocaleString("es-CL")}`;
-}
+import { formatPrice } from "@/lib/utils";
 
 export default function Cart() {
   const { items, remove, updateQty, clear, total, count, isOpen, setIsOpen } =

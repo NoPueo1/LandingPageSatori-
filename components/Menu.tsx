@@ -6,10 +6,7 @@ import { menuData, MenuItem } from "@/data/menu";
 import { siteConfig } from "@/data/siteConfig";
 import { Info, ShoppingBag, Check } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-
-function formatPrice(price: number) {
-  return `$${price.toLocaleString("es-CL")}`;
-}
+import { formatPrice } from "@/lib/utils";
 
 export default function Menu() {
   const [active, setActive] = useState("clasicas");
@@ -150,13 +147,7 @@ export default function Menu() {
                             </div>
                           ))}
                         </div>
-                      ) : (
-                        item.description && (
-                          <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 flex-1">
-                            {item.description}
-                          </p>
-                        )
-                      )}
+                      ) : null}
                     </div>
 
                     {/* Bottom row: Price & Action */}
