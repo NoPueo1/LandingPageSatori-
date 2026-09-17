@@ -68,7 +68,7 @@ export const menuData: MenuCategory[] = [
         pieces: 100,
         price: 39990,
         description:
-          "La experiencia completa: 10 variedades distintas de rolls incluyendo pollo, kanikama, camarón y palmito con envolturas de panko, palta, ciboullete, queso nuss, sésamo, nori frito y más.",
+          "Pollo · queso · palta envuelto en panko — kanikama apanado · queso · morrón ahumado envuelto en panko — palmito · queso · choclo envuelto en panko — camarón apanado · queso · cebollín envuelto en panko — pollo apanado · queso · ciboullete envuelto en palta — camarón apanado · queso · choclo envuelto en ciboullete — kanikama apanado · palmito · cebollín envuelto en queso con topping cebolla crispy — camarón apanado · queso · palta envuelto en sésamo blanco tostado — kanikama apanado · queso envuelto en nori frito — choclo baby · queso · palta envuelto en nori con topping de sésamo tostado.",
         tag: "Mega",
       },
     ],
