@@ -93,11 +93,11 @@ export default function Menu() {
                     className="group relative rounded-2xl p-6 bg-[#141414] border border-[#242424] hover:border-[#c0392b]/50 transition-all duration-300 card-glow flex flex-col justify-between"
                   >
                     <div>
-                      {/* Cuts / Units Badge */}
-                      {item.pieces && (
+                      {/* Badge: Cortes, Unidades, or Custom Format */}
+                      {(item.badge || item.pieces) && (
                         <div className="mb-2">
                           <span className="inline-block text-xs font-black px-2.5 py-1 rounded bg-[#d4a853]/15 text-[#e5be6b] border border-[#d4a853]/30 tracking-wider uppercase">
-                            {item.pieces} {item.unit || "Cortes"}
+                            {item.badge ? item.badge : `${item.pieces} ${item.unit || "Cortes"}`}
                           </span>
                         </div>
                       )}

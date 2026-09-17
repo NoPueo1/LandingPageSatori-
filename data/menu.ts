@@ -12,6 +12,7 @@ export interface MenuItem {
   name: string;
   pieces?: number | string;
   unit?: string;
+  badge?: string;
   price: number;
   description?: string;
   rolls?: RollItem[];
@@ -259,47 +260,56 @@ export const menuData: MenuCategory[] = [
   {
     id: "handroll",
     label: "Hand-Rolls & Burger",
-    conditions: "Incluye salsa de soya o agridulce.",
+    conditions: "Incluye salsa de soya o agridulce. Elige tus vegetales favoritos.",
     items: [
       {
         name: "Hand-Roll Pollo",
+        badge: "Hand-Roll",
         price: 3800,
         details: [
-          { label: "Base", text: "Pollo tradicional y queso crema" },
-          { label: "Vegetal", text: "+ 1 vegetal a elección" },
+          { label: "Proteína", text: "Pollo tradicional cocido (no apanado)" },
+          { label: "Relleno", text: "Queso crema" },
+          { label: "Vegetal", text: "+1 a elección (palta, cebollín, morrón, ciboulette, choclo o palmito)" },
         ],
       },
       {
         name: "Hand-Roll Pollo Apanado",
+        badge: "Hand-Roll",
         price: 3800,
         details: [
-          { label: "Base", text: "Pollo crujiente apanado y queso crema" },
-          { label: "Vegetal", text: "+ 1 vegetal a elección" },
+          { label: "Proteína", text: "Pollo crujiente apanado al panko" },
+          { label: "Relleno", text: "Queso crema" },
+          { label: "Vegetal", text: "+1 a elección (palta, cebollín, morrón, ciboulette, choclo o palmito)" },
         ],
       },
       {
-        name: "Hand-Roll Kanikama",
+        name: "Hand-Roll Kanikama Apanado",
+        badge: "Hand-Roll",
         price: 3800,
         details: [
-          { label: "Base", text: "Kanikama apanado y queso crema" },
-          { label: "Vegetal", text: "+ 1 vegetal a elección" },
+          { label: "Proteína", text: "Kanikama crujiente apanado al panko" },
+          { label: "Relleno", text: "Queso crema" },
+          { label: "Vegetal", text: "+1 a elección (palta, cebollín, morrón, ciboulette, choclo o palmito)" },
         ],
       },
       {
-        name: "Hand-Roll Camarón",
+        name: "Hand-Roll Camarón Apanado",
+        badge: "Hand-Roll",
         price: 4500,
         details: [
-          { label: "Base", text: "Camarón apanado y queso crema" },
-          { label: "Vegetal", text: "+ 1 vegetal a elección" },
+          { label: "Proteína", text: "Camarón crujiente apanado al panko" },
+          { label: "Relleno", text: "Queso crema" },
+          { label: "Vegetal", text: "+1 a elección (palta, cebollín, morrón, ciboulette, choclo o palmito)" },
         ],
       },
       {
         name: "Sushi Burger",
+        badge: "Sushi Burger",
         price: 7990,
         details: [
-          { label: "Proteína", text: "Pollo, kanikama o camarón apanado" },
-          { label: "Relleno", text: "Queso crema + 3 vegetales a elección" },
-          { label: "Opciones", text: "Palta, morrón, cebollín, ciboulette, choclo baby o palmito" },
+          { label: "Proteína", text: "1 apanada a elección: Pollo, kanikama o camarón" },
+          { label: "Relleno", text: "Queso crema" },
+          { label: "Vegetales", text: "+3 a elección (palta, cebollín, morrón, ciboulette, choclo o palmito)" },
         ],
       },
     ],
