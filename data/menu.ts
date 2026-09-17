@@ -263,8 +263,6 @@ export const menuData: MenuCategory[] = [
     items: [
       {
         name: "Hand-Roll Pollo",
-        pieces: 1,
-        unit: "Roll",
         price: 3800,
         details: [
           { label: "Base", text: "Pollo tradicional y queso crema" },
@@ -273,8 +271,6 @@ export const menuData: MenuCategory[] = [
       },
       {
         name: "Hand-Roll Pollo Apanado",
-        pieces: 1,
-        unit: "Roll",
         price: 3800,
         details: [
           { label: "Base", text: "Pollo crujiente apanado y queso crema" },
@@ -283,8 +279,6 @@ export const menuData: MenuCategory[] = [
       },
       {
         name: "Hand-Roll Kanikama",
-        pieces: 1,
-        unit: "Roll",
         price: 3800,
         details: [
           { label: "Base", text: "Kanikama apanado y queso crema" },
@@ -293,8 +287,6 @@ export const menuData: MenuCategory[] = [
       },
       {
         name: "Hand-Roll Camarón",
-        pieces: 1,
-        unit: "Roll",
         price: 4500,
         details: [
           { label: "Base", text: "Camarón apanado y queso crema" },
@@ -303,8 +295,6 @@ export const menuData: MenuCategory[] = [
       },
       {
         name: "Sushi Burger",
-        pieces: 1,
-        unit: "Unidad",
         price: 7990,
         details: [
           { label: "Proteína", text: "Pollo, kanikama o camarón apanado" },
