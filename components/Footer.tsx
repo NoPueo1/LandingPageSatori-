@@ -41,13 +41,13 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm tracking-wider uppercase">
               Menú
             </h4>
-            <ul className="space-y-2 text-gray-500 text-sm">
-              <li>🍱 Promos Clásicas</li>
-              <li>⭐ Promos Premium</li>
-              <li>🌀 Rolls Individuales</li>
-              <li>🐟 Signature Salmon</li>
-              <li>🌯 Hand-Roll & Sushi Burger</li>
-              <li>🍟 Picoteos</li>
+            <ul className="space-y-2.5 text-gray-400 text-sm">
+              <li><a href="#menu" className="hover:text-white transition-colors">Promos Clásicas</a></li>
+              <li><a href="#menu" className="hover:text-white transition-colors">Promos Premium</a></li>
+              <li><a href="#menu" className="hover:text-white transition-colors">Rolls Individuales</a></li>
+              <li><a href="#menu" className="hover:text-white transition-colors">Signature Salmon</a></li>
+              <li><a href="#menu" className="hover:text-white transition-colors">Hand-Roll & Sushi Burger</a></li>
+              <li><a href="#menu" className="hover:text-white transition-colors">Picoteos</a></li>
             </ul>
           </div>
 

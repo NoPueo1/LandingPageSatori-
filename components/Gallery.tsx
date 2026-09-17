@@ -10,19 +10,13 @@ type GalleryItem =
   | { type: "video"; src: string; alt: string; label: string; poster?: string };
 
 const galleryItems: GalleryItem[] = [
-  { type: "image", src: "/images/sushi-1.jpg",  alt: "Sushi Satori", label: "Siempre frescos" },
-  { type: "image", src: "/images/sushi-2.jpg",  alt: "Sushi Satori", label: "La mejor calidad" },
-  { type: "image", src: "/images/sushi-3.jpg",  alt: "Sushi Satori", label: "Hecho con cariño" },
-  { type: "video", src: "/videos/video1.mp4",   alt: "Video Satori",  label: "Satori Sushi" },
-  { type: "image", src: "/images/sushi-4.jpg",  alt: "Sushi Satori", label: "Cada detalle importa" },
+  { type: "image", src: "/images/sushi-1.jpg",  alt: "Sushi Satori", label: "Preparación del día" },
+  { type: "image", src: "/images/sushi-4.jpg",  alt: "Sushi Satori", label: "Rolls de autor" },
   { type: "image", src: "/images/sushi-5.jpg",  alt: "Sushi Satori", label: "Sabor en cada corte" },
-  { type: "image", src: "/images/sushi-6.jpg",  alt: "Sushi Satori", label: "Rolls de autor" },
+  { type: "video", src: "/videos/video1.mp4",   alt: "Video Satori", label: "Satori en acción" },
+  { type: "image", src: "/images/sushi-6.jpg",  alt: "Sushi Satori", label: "Topping crocante" },
   { type: "image", src: "/images/sushi-7.jpg",  alt: "Sushi Satori", label: "Para compartir" },
-  { type: "image", src: "/images/sushi-8.jpg",  alt: "Sushi Satori", label: "Siempre frescos" },
-  { type: "image", src: "/images/sushi-9.jpg",  alt: "Sushi Satori", label: "La mejor calidad" },
-  { type: "image", src: "/images/sushi-10.jpg", alt: "Sushi Satori", label: "Hecho con cariño" },
-  { type: "image", src: "/images/sushi-11.jpg", alt: "Sushi Satori", label: "Sabor en cada corte" },
-  { type: "image", src: "/images/sushi-12.jpg", alt: "Sushi Satori", label: "Rolls de autor" },
+  { type: "image", src: "/images/sushi-11.jpg", alt: "Sushi Satori", label: "Ingredientes frescos" },
   { type: "image", src: "/images/sushi-13.jpg", alt: "Sushi Satori", label: "Colores y sabor" },
 ];
 
@@ -82,8 +76,8 @@ export default function Gallery() {
           <div className="brush-line w-24 mx-auto" />
         </motion.div>
 
-        {/* Grid 3 columnas — 9 fotos + 1 video = 10 items */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        {/* Grid 4 columnas balanceado — 7 fotos + 1 video = 8 items */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {galleryItems.map((item, i) => (
             <motion.div
               key={i}
