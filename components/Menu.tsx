@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { menuData, MenuItem } from "@/data/menu";
 import { siteConfig } from "@/data/siteConfig";
-import { Info, ShoppingBag, Check, Sparkles, Flame } from "lucide-react";
+import { Info, ShoppingBag, Check } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 function formatPrice(price: number) {
@@ -82,7 +82,6 @@ export default function Menu() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
               {activeCategory.items.map((item, i) => {
                 const wasAdded = added === item.name;
-                const isMega = item.tag === "Mega Combo";
 
                 return (
                   <motion.div
@@ -90,80 +89,48 @@ export default function Menu() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.05, duration: 0.4 }}
-                    className={`group relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between ${
-                      isMega
-                        ? "col-span-1 sm:col-span-2 lg:col-span-3 bg-gradient-to-br from-[#1b1414] via-[#141414] to-[#101010] border-2 border-[#c0392b]/60 shadow-2xl shadow-red-950/30"
-                        : "bg-[#141414] border border-[#242424] hover:border-[#c0392b]/50 card-glow"
-                    }`}
+                    className="group relative rounded-2xl p-6 bg-[#141414] border border-[#242424] hover:border-[#c0392b]/50 transition-all duration-300 card-glow flex flex-col justify-between"
                   >
-                    {/* Top row: Cuts, Servings & Tags */}
                     <div>
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <div className="flex flex-wrap items-center gap-2">
-                          {item.pieces && (
-                            <span className="text-xs font-black px-2.5 py-1 rounded-md bg-[#d4a853]/15 text-[#e5be6b] border border-[#d4a853]/30 tracking-wider uppercase">
-                              {item.pieces} {typeof item.pieces === "number" ? "Cortes" : "Cortes"}
-                            </span>
-                          )}
-                          {item.servings && (
-                            <span className="text-xs text-gray-400 font-medium">
-                              · {item.servings}
-                            </span>
-                          )}
-                        </div>
-
-                        {item.tag && (
-                          <span
-                            className={`text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 border ${
-                              item.tag === "Mega Combo"
-                                ? "bg-red-600/30 text-red-300 border-red-500/40"
-                                : item.tag === "Más Pedida"
-                                ? "bg-amber-500/20 text-amber-300 border-amber-500/30"
-                                : "bg-[#c0392b]/20 text-[#e74c3c] border-[#c0392b]/30"
-                            }`}
-                          >
-                            {item.tag === "Más Pedida" && <Flame className="w-3 h-3 text-amber-400" />}
-                            {item.tag === "Mega Combo" && <Sparkles className="w-3 h-3 text-red-400" />}
-                            {item.tag}
+                      {/* Cuts Badge */}
+                      {item.pieces && (
+                        <div className="mb-2">
+                          <span className="inline-block text-xs font-black px-2.5 py-1 rounded bg-[#d4a853]/15 text-[#e5be6b] border border-[#d4a853]/30 tracking-wider uppercase">
+                            {item.pieces} Cortes
                           </span>
-                        )}
-                      </div>
+                        </div>
+                      )}
 
                       {/* Title */}
-                      <h3
-                        className={`font-black text-white mb-4 ${
-                          isMega ? "text-2xl sm:text-3xl" : "text-xl"
-                        }`}
-                      >
+                      <h3 className="font-black text-xl text-white mb-4">
                         {item.name}
                       </h3>
 
-                      {/* Rolls Breakdown */}
+                      {/* Rolls List with clean alignment */}
                       {item.rolls && item.rolls.length > 0 ? (
-                        <div
-                          className={`mb-6 ${
-                            isMega
-                              ? "grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2.5 pt-2 border-t border-white/5"
-                              : "space-y-2.5"
-                          }`}
-                        >
+                        <div className="space-y-2 mb-6 flex-1">
                           {item.rolls.map((roll, idx) => (
                             <div
                               key={idx}
                               className="flex items-start gap-2.5 text-xs sm:text-sm leading-snug"
                             >
-                              <span className="px-2 py-0.5 rounded bg-[#202020] text-[#d4a853] border border-white/5 font-semibold shrink-0 text-xs">
-                                {roll.wrapping}
+                              <span className="text-[#c0392b] font-bold text-sm shrink-0 mt-0.5">
+                                •
                               </span>
-                              <span className="text-gray-300 pt-0.5">
-                                {roll.ingredients}
-                              </span>
+                              <div className="text-gray-300">
+                                <span className="text-[#d4a853] font-bold">
+                                  {roll.wrapping}:
+                                </span>{" "}
+                                <span className="text-gray-400">
+                                  {roll.ingredients}
+                                </span>
+                              </div>
                             </div>
                           ))}
                         </div>
                       ) : (
                         item.description && (
-                          <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                          <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 flex-1">
                             {item.description}
                           </p>
                         )
@@ -173,21 +140,17 @@ export default function Menu() {
                     {/* Bottom row: Price & Action */}
                     <div className="flex items-center justify-between pt-4 border-t border-[#242424] mt-auto">
                       <div>
-                        <span className="text-xs text-gray-500 block">Total</span>
-                        <span
-                          className={`font-black text-white ${
-                            isMega ? "text-3xl text-red-100" : "text-2xl"
-                          }`}
-                        >
+                        <span className="text-[11px] text-gray-500 uppercase tracking-wider block">
+                          Total
+                        </span>
+                        <span className="text-2xl font-black text-white">
                           {formatPrice(item.price)}
                         </span>
                       </div>
 
                       <button
                         onClick={() => handleAdd(item)}
-                        className={`flex items-center gap-2 font-bold rounded-full transition-all duration-300 shadow-md ${
-                          isMega ? "px-6 py-3 text-base" : "px-4 py-2 text-sm"
-                        } ${
+                        className={`flex items-center gap-2 font-bold px-4 py-2 text-sm rounded-full transition-all duration-300 shadow-md ${
                           wasAdded
                             ? "bg-green-600/20 text-green-400 border border-green-600/40"
                             : "bg-[#c0392b] hover:bg-[#a93226] text-white shadow-red-950/40"

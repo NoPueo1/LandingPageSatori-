@@ -6,11 +6,9 @@ export interface RollItem {
 export interface MenuItem {
   name: string;
   pieces?: number | string;
-  servings?: string;
   price: number;
   description?: string;
   rolls?: RollItem[];
-  tag?: string;
 }
 
 export interface MenuCategory {
@@ -30,7 +28,6 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 1",
         pieces: 20,
-        servings: "1-2 personas",
         price: 7990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso, morrón ahumado" },
@@ -40,7 +37,6 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 2",
         pieces: 20,
-        servings: "1-2 personas",
         price: 9990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso, morrón ahumado" },
@@ -50,7 +46,6 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 3",
         pieces: 30,
-        servings: "2-3 personas",
         price: 12990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso crema, palta" },
@@ -61,7 +56,6 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 4",
         pieces: 40,
-        servings: "2-4 personas",
         price: 16990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Camarón apanado, queso, palta" },
@@ -73,9 +67,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 5",
         pieces: 50,
-        servings: "3-4 personas",
         price: 20990,
-        tag: "Más Pedida",
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso crema, palta" },
           { wrapping: "Panko frito", ingredients: "Camarón apanado, queso crema, cebollín" },
@@ -87,7 +79,6 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 6",
         pieces: 70,
-        servings: "4-5 personas",
         price: 27990,
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso, palta" },
@@ -102,9 +93,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Promo 7",
         pieces: 100,
-        servings: "5-7 personas · Eventos & Juntas",
         price: 39990,
-        tag: "Mega Combo",
         rolls: [
           { wrapping: "Panko frito", ingredients: "Pollo, queso, palta" },
           { wrapping: "Panko frito", ingredients: "Kanikama apanado, queso, morrón ahumado" },
@@ -129,7 +118,6 @@ export const menuData: MenuCategory[] = [
       {
         name: "Premium A",
         pieces: 30,
-        servings: "2-3 personas",
         price: 14990,
         rolls: [
           { wrapping: "Jamón serrano", ingredients: "Camarón apanado, queso crema, ciboulette con salsa acevichada y merkén" },
@@ -140,7 +128,6 @@ export const menuData: MenuCategory[] = [
       {
         name: "Premium B",
         pieces: 30,
-        servings: "2-3 personas",
         price: 15990,
         rolls: [
           { wrapping: "Queso nuss", ingredients: "Pollo apanado, queso, ciboulette" },
@@ -151,9 +138,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Premium C",
         pieces: 30,
-        servings: "2-3 personas",
         price: 16990,
-        tag: "Top Selección",
         rolls: [
           { wrapping: "Ciboulette", ingredients: "Pollo, queso, choclo con salsa acevichada y aros de cebolla" },
           { wrapping: "Palta fresca", ingredients: "Camarón apanado, queso, palmito con salsa pink y crocante de camote" },
@@ -163,17 +148,15 @@ export const menuData: MenuCategory[] = [
       {
         name: "Inata Salmon",
         pieces: 20,
-        servings: "1-2 personas",
         price: 11990,
         rolls: [
-          { wrapping: "Nori frito", ingredients: "Salmón, queso crema con topping salsa acevichada y merkén ahumado" },
+          { wrapping: "Nori frito", ingredients: "Salmón, queso crema con salsa acevichada y merkén ahumado" },
           { wrapping: "Ciboulette", ingredients: "Pollo, queso, palta con salsa maracuyá y camote" },
         ],
       },
       {
         name: "Hiroshi Fusion",
         pieces: 20,
-        servings: "1-2 personas",
         price: 12990,
         rolls: [
           { wrapping: "Jamón serrano", ingredients: "Camarón, queso, ciboulette con salsa acevichada y merkén ahumado" },
@@ -183,9 +166,7 @@ export const menuData: MenuCategory[] = [
       {
         name: "Satori Nikkei",
         pieces: 20,
-        servings: "1-2 personas",
         price: 14990,
-        tag: "Signature",
         rolls: [
           { wrapping: "Salmón fresco", ingredients: "Camarón furay, queso, palta con salsa acevichada y limón" },
           { wrapping: "Palta fresca", ingredients: "Salmón furay, queso, pimentón ahumado con salsa pinky y camote crocante" },
@@ -235,7 +216,6 @@ export const menuData: MenuCategory[] = [
         name: "Roll F",
         pieces: "8-10",
         price: 7500,
-        tag: "Especial",
         rolls: [
           { wrapping: "Panko frito", ingredients: "Salmón, queso, palta con topping camarón apanado y salsa maracuyá" },
         ],
@@ -244,7 +224,6 @@ export const menuData: MenuCategory[] = [
         name: "Roll G",
         pieces: "8-10",
         price: 8000,
-        tag: "Premium",
         rolls: [
           { wrapping: "Salmón flameado", ingredients: "Camarón apanado, queso con salsa acevichada y toque de limón" },
         ],
@@ -279,7 +258,6 @@ export const menuData: MenuCategory[] = [
       {
         name: "Sushi Burger",
         price: 7990,
-        tag: "Estrella",
         description:
           "1 proteína apanada (pollo, kanikama o camarón) + queso crema + 3 vegetales a elección (palta, morrón ahumado, cebollín, ciboullete, choclo baby o palmito).",
       },
