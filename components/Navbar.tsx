@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Menu, X, MessageCircle } from "lucide-react";
-import { siteConfig } from "@/data/siteConfig";
+import { Menu, X, ShoppingBag } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const navLinks = [
   { href: "#nosotros", label: "Nosotros" },
@@ -15,6 +15,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { count, setIsOpen } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -64,18 +65,26 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="flex items-center gap-3">
-            <a
-              href={siteConfig.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 bg-[#c0392b] hover:bg-[#a93226] text-white text-sm font-bold px-4 py-2 rounded-full transition-colors duration-300"
-            >
-              <MessageCircle className="w-4 h-4" />
-              Pedir
-            </a>
+            {count > 0 ? (
+              <button
+                onClick={() => setIsOpen(true)}
+                className="flex items-center gap-2 bg-[#c0392b] hover:bg-[#a93226] text-white text-sm font-bold px-4 py-2 rounded-full transition-all duration-300 shadow-lg shadow-red-950/40 cursor-pointer"
+              >
+                <ShoppingBag className="w-4 h-4" />
+                <span>Tu Pedido ({count})</span>
+              </button>
+            ) : (
+              <a
+                href="#menu"
+                className="hidden sm:flex items-center gap-2 bg-[#c0392b] hover:bg-[#a93226] text-white text-sm font-bold px-4 py-2 rounded-full transition-colors duration-300"
+              >
+                Ver Menú
+              </a>
+            )}
+
             {/* Mobile menu button */}
             <button
-              className="md:hidden text-white p-1"
+              className="md:hidden text-white p-1 cursor-pointer"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
@@ -106,15 +115,27 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href={siteConfig.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#c0392b] text-white font-bold px-6 py-3 rounded-full"
-              >
-                <MessageCircle className="w-5 h-5" />
-                Hacer Pedido
-              </a>
+
+              {count > 0 ? (
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    setIsOpen(true);
+                  }}
+                  className="flex items-center justify-center gap-2 bg-[#c0392b] text-white font-bold px-6 py-3 rounded-full cursor-pointer"
+                >
+                  <ShoppingBag className="w-5 h-5" />
+                  Ver mi Pedido ({count})
+                </button>
+              ) : (
+                <a
+                  href="#menu"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-center gap-2 bg-[#c0392b] text-white font-bold px-6 py-3 rounded-full"
+                >
+                  Ver Menú
+                </a>
+              )}
             </div>
           </motion.div>
         )}

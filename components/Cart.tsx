@@ -26,7 +26,7 @@ export default function Cart() {
   };
 
   const handleConfirm = () => {
-    const url = `https://api.whatsapp.com/send/?phone=56982464254&text=${buildWhatsAppMsg()}&type=phone_number&app_absent=0`;
+    const url = `https://api.whatsapp.com/send/?phone=${siteConfig.phone}&text=${buildWhatsAppMsg()}&type=phone_number&app_absent=0`;
     window.open(url, "_blank");
     clear();
     setIsOpen(false);
